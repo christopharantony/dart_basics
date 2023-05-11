@@ -1,108 +1,41 @@
-import 'dart:io';
-
 void main() {
-  //? 1. Enter your name
-  // print('Who is this ?');
-  // var name = stdin.readLineSync();
-  // print('Nice to meet you $name');
+  print('Hello World');
+  sum(2, 3);
+  sum2(1, 3);
+  print(sumReturn(0, 3));
+  print(showDetails(firstName: "Ok", age: 4));
+  parentFunction(90, 10, sum2);
+  //? anonymous function
+  parentFunction(70, 30, (int num1, int num2) {
+    print("Anonymous function sum $num1 + $num2 = ${num1 + num2}");
+  });
+  asynchronous();
+  print("Future Function kazhinjuuu");
+}
 
-  //? 2.Sum of two numbers
-  // print('Enter two numbers');
-  // var input1 = stdin.readLineSync();
-  // var input2 = stdin.readLineSync();
-  // if (input1!.isEmpty) input1 = '0';
-  // if (input2!.isEmpty) input2 = '0';
-  // var num1 = int.parse(input1);
-  // var num2 = int.parse(input2);
-  // print('$num1 + $num2 = ${num1 + num2}');
+String a = "eeee";
+Function sum = (a, b) => print(a + b);
 
-  //? 3.Substract
-  // print('Enter two numbers');
-  // var input1 = stdin.readLineSync();
-  // var input2 = stdin.readLineSync();
-  // if (input1!.isEmpty) input1 = '0';
-  // if (input2!.isEmpty) input2 = '0';
-  // int num1 = int.parse(input1);
-  // int num2 = int.parse(input2);
-  // print('$num1 - $num2 = ${num1 - num2}');
+void sum2(int a, int b) {
+  print(a + b);
+}
 
-  //! Data Types
-  //? 1. String
-  // String a = "Johny";
-  // String b = 'M@str';
-  // String c = '''Oh Ente mwoone!
-  // Pranthaada ninacku''';
-  // print(a.length);
-  // print(b);
-  // print(c);
-  //? 2. int
-  // int num = 3;
-  // print(num);
-  //? 3. double
-  // double num2 = 3;
-  // print(num2);
+int sumReturn(int a, int b) {
+  return a + b;
+}
 
-  //! If and do while
-  // var repeat;
-  // do {
-  //   print('Enter a number');
-  //   var input = stdin.readLineSync();
-  //   if (input!.isEmpty) input = '0';
-  //   int num = int.parse(input);
-  //   if (num < 0)
-  //     print('$num is negative');
-  //   else if (num == 0)
-  //     print('$num is zero');
-  //   else
-  //     print('$num is positive');
-  //   print('Do you want to continue? (y/n)');
-  //   repeat = stdin.readLineSync();
-  // } while (repeat == 'y');
+//? Named Parameters
+String showDetails({required String firstName, secondName = "N/A", int? age}) {
+  return "First Name: $firstName\nSecond Name: $secondName\nAge : $age";
+}
 
-  //! For loop
-  // for (int i = 0; i <= 10; i++) {
-  //   print(i);
-  // }
+//? Call Back Function
+void parentFunction(int a, int b, Function(int, int) callback) {
+  callback(a, b);
+}
 
-  //! While loop
-  // int i = 0;
-  // // var nums = [1, 2, 3, 4, 5];
-  // List<int> nums = [1, 2, 3, 4, 5];
-  // while (i < nums.length) {
-  //   print(nums[i++]);
-  // }
-  // if (nums.contains(6)) {
-  //   print('6 is in the list');
-  // } else {
-  //   print('6 is not in the list');
-  // }
-
-  // nums.add(6);
-  // nums.remove(3);
-  // nums.removeAt(0);
-  // print(nums);
-
-  //! Nested List
-  // List<List<int>> nums = [
-  //   [0, 0, 0]
-  // ];
-  // nums.add([1, 2, 3]);
-  // nums.add([4, 5, 6]);
-  // nums.add([7, 8, 9]);
-  // print(nums[2][1]);
-
-  //! Set
-  // List<int> nums = [1, 2, 3, 4, 3, 0, 2, 4, 2, 4, 6, 7, 7, 8, 2];
-  // Set<int> uniqueNums = {...nums};
-  // List<int> uniqueLlist = uniqueNums.toList();
-  // print('uniqueNums $uniqueNums');
-  // print('nums $nums');
-  // print('uniqueLlist $uniqueLlist');
-
-  //! Map
-  // Map<String, String> map = {
-  //   'name': 'Chris',
-  //   'age': '23',
-  // };
-  // print(map['age']);
+//? Future Function
+Future<void> asynchronous() async {
+  await Future.delayed(Duration(seconds: 3));
+  print('Future Function called');
 }

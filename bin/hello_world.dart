@@ -11,6 +11,10 @@ void main() {
   });
   asynchronous();
   print("Future Function kazhinjuuu");
+  const String fName = 'Kunju';
+  final String sName;
+  sName = 'Mon';
+  print(fName + sName);
 }
 
 String a = "eeee";

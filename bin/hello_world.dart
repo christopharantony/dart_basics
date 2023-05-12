@@ -7,6 +7,8 @@ void main() {
   print(person.age);
   // Access private variable using a function
   print(person.showPassword());
+  // Change password using a setter
+  person.setPassword = '123@asd';
   // Access private variable using a getter
   print(person.password);
 }

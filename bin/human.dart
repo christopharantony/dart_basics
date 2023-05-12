@@ -1,6 +1,7 @@
-import 'animal.dart';
+import 'animal1.dart';
+import 'animal2.dart';
 
-class Human implements Animal {
+class Human with Animal2, Animal1 {
   void sayName() {
     print("My name is Human");
   }
@@ -8,5 +9,6 @@ class Human implements Animal {
   @override
   void sayHello() {
     print("Human says Hello");
+    super.sayHello();
   }
 }
